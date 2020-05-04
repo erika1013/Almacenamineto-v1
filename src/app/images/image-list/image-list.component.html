@@ -1,0 +1,61 @@
+<div *ngIf="rol == 2">
+  <div class="container space">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card-columns">
+          <div class="card" *ngFor="let item of imageList">
+            <div class="card-body">
+              <h5 class="card-title"><strong>Categoria :</strong> {{item.category}}</h5>
+              <h5 class="card-title"><strong>Descripcion :</strong> {{item.caption}}</h5>
+              <h5 class="card-title"><strong>Usuario :</strong> {{item.user}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <p><a href="{{item.imageUrl}}" class="text-success">Ver </a></p>
+              <td>
+                <div *ngIf="item.user == user">
+                  <a routerLink="/image/edit/{{item.id}}" class="btn btn-outline-success btn-sm">Editar</a>
+                  <Button (click)="deleteElement(item.id)" class="btn btn-outline-success btn-sm"> Eliminar</Button>
+                </div>
+                <div *ngIf="item.user != user">
+                  <Button disabled class="btn btn-outline-success btn-sm">Editar</Button>
+                  <Button disabled class="btn btn-outline-success btn-sm"> Eliminar</Button>
+                </div>
+              </td>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="rol == 1">
+  <div class="container space">
+    <div class="row">
+      <div class="col-sm">
+        <div class="card-columns">
+          <div class="card" *ngFor="let item of imageList">
+            <div class="card-body">
+              <h5 class="card-title"><strong>Categoria :</strong> {{item.category}}</h5>
+              <h5 class="card-title"><strong>Descripcion :</strong> {{item.caption}}</h5>
+              <h5 class="card-title"><strong>Usuario :</strong> {{item.user}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <p><a href="{{item.imageUrl}}" class="text-success">Ver </a></p>
+              <td>
+                <br>
+                <div *ngIf="item.user == user">
+                  <button (click)="deleteElement(item.id)" type="button"
+                    class="btn btn-outline-success btn-sm">eliminar</button>
+                </div>
+                <div *ngIf="item.user != user">
+                  <button (click)="deleteElement(item.id)" type="button"
+                    class="btn btn-outline-successbtn-sm">eliminar</button>
+                </div>
+              </td>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
